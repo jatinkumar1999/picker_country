@@ -1,7 +1,8 @@
 name: picker_country
-description: "A new Flutter package project."
-version: 0.0.1
+description: "A Flutter package for picking country code having the option to view like Full screen, Dialog, Bottom sheet. Bt default Full screen is enable you can change it acccording to your requirement. This package also have the phone length according to the country."
+version: 1.0.0
 homepage:
+repository: https://github.com/jatinkumar1999/picker_country
 
 environment:
   sdk: ^3.5.2

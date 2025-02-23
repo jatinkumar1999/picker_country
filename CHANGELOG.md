@@ -1,3 +1,3 @@
-## 0.0.1
+## 1.0.0
 
-* TODO: Describe initial release.
+* TODO:This have full screen , dialog & bottomsheet. You can change tgis according to your requirements.

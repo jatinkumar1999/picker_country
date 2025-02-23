@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-A Flutter package for picking country code having the option to view like Full screen, Dialog, Bottom sheet.
+A Flutter package for picking country code having the option to view like Full screen, Dialog, Bottom sheet. Bt default Full screen is enable you can change it acccording to your requirement. This package also have the phone length according to the country.
 
 Usage
 
@@ -39,11 +39,12 @@ import 'package:picker_country/picker_country.dart';
       context,
        isDialog: true,  /// make the true if want a dialog
        isBottomSheet: true,  /// make the true if want a bottomsheet
-      isFullScreen: true,  /// make the true if want a full screen
+      isFullScreen: true,  /// make the true if want a full screen, By defaukt this is enable
       onComplete: (country) {
-       /// Here'll receive your choosen country.
+       /// Here you'll receive your choosen country.
       },
     );
 
 ```
+
 # picker_country

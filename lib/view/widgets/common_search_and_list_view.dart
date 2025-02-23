@@ -60,7 +60,7 @@ class CommonSearchAndListView extends StatelessWidget {
                 child: Scrollbar(
                   controller: controller.scrollcontroller,
                   interactive: true,
-                  radius: const Radius.circular(10),
+                  radius: const Radius.circular(1),
                   thickness: 6,
                   thumbVisibility: true,
                   trackVisibility: true,
@@ -82,15 +82,10 @@ class CommonSearchAndListView extends StatelessWidget {
                             fontSize: 20,
                           ),
                         ),
-                        title: highlightText(country.displayName ?? '',
-                            controller.searchController.text),
-
-                        // title: Text(
-                        //   country.displayName ?? '',
-                        //   style: const TextStyle(
-                        //     fontSize: 20,
-                        //   ),
-                        // ),
+                        title: highlightText(
+                          country.displayName ?? '',
+                          controller.searchController.text,
+                        ),
                       );
                     },
                   ),
