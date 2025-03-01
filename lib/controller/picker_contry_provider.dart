@@ -12,8 +12,7 @@ class PickerContryProvider extends ChangeNotifier {
   String selectedCountryCode = '';
   List<Country> countryCodeList = <Country>[];
   List<Country> countryCodeListFilter = <Country>[];
-    final ScrollController scrollcontroller = ScrollController();
-
+  final ScrollController scrollcontroller = ScrollController();
 
   TextEditingController searchController = TextEditingController();
   void getPreSelectedCountryCode() {

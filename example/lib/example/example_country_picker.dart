@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:picker_country/modal/picker_model.dart';
 import 'package:picker_country/picker_country.dart';
+import 'package:picker_country/view/text_form_fields/inner_fields.dart';
 
 class ExampleCountryPicker extends StatefulWidget {
   const ExampleCountryPicker({
@@ -18,8 +19,8 @@ class _ExampleCountryPickerState extends State<ExampleCountryPicker> {
     PickerCountry.picker(
       context,
       // isDialog: true,
-      // // isBottomSheet: true,
-      // // isFullScreen: true,
+      // isBottomSheet: true,
+      // isFullScreen: true,
       onComplete: (country) {
         selectedCountry = country;
         setState(() {});
@@ -39,6 +40,11 @@ class _ExampleCountryPickerState extends State<ExampleCountryPicker> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15.0),
+              child: PickerInnerFields(),
+            ),
+            const SizedBox(height: 20),
             Text(
               'Selected Country',
               style: Theme.of(context).textTheme.headlineLarge,
