@@ -47,3 +47,35 @@ PickerCountry.picker(
 );
 
 ```
+
+## Code Usage for PickerInnerFields
+
+```bash
+
+PickerInnerFields(
+  isDialog: true,  /// Set to true to display a dialog
+  isBottomSheet: true,  /// Set to true to display a bottom sheet
+  isFullScreen: true,   /// Set to true for full-screen mode (enabled by default)
+),
+
+```
+
+### Screenshot
+
+<img src="lib/assets/flutter_01.png" alt="PickerInnerFields" width="300"/>
+
+## Code Usage for PickerOutterFields
+
+```bash
+
+PickerOutterFields(
+  isDialog: true,  /// Set to true to display a dialog
+  isBottomSheet: true,  /// Set to true to display a bottom sheet
+  isFullScreen: true,   /// Set to true for full-screen mode (enabled by default)
+),
+
+```
+
+### Screenshot
+
+<img src="lib/assets/flutter_02.png" alt="Home Screen" width="300"/>

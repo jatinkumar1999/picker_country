@@ -6,7 +6,7 @@ import '../../constants/asset_constant/asset_constants.dart';
 import '../../controller/picker_contry_provider.dart';
 import '../../picker_country.dart';
 
-class PickerInnerFields extends StatefulWidget {
+class PickerOutterFields extends StatefulWidget {
   final TextEditingController? controller;
   final void Function(String)? onChanged;
   final void Function(String)? onFieldSubmitted;
@@ -16,7 +16,7 @@ class PickerInnerFields extends StatefulWidget {
   final bool? isBottomSheet;
   final bool? isFullScreen;
   final String? hintText;
-  const PickerInnerFields(
+  const PickerOutterFields(
       {super.key,
       this.controller,
       this.onChanged,
@@ -29,17 +29,17 @@ class PickerInnerFields extends StatefulWidget {
       this.isFullScreen});
 
   @override
-  State<PickerInnerFields> createState() => _PickerInnerFieldsState();
+  State<PickerOutterFields> createState() => _PickerOutterFieldsState();
 }
 
-class _PickerInnerFieldsState extends State<PickerInnerFields> {
+class _PickerOutterFieldsState extends State<PickerOutterFields> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<PickerContryProvider>(
       create: (context) => PickerContryProvider(),
       builder: (context, child) => Consumer<PickerContryProvider>(
         builder: (context, controller, _) {
-          return InnerTexFormFieldTile(
+          return OutterTexFormFieldTile(
             controller: controller,
             hintText: widget.hintText,
             onChanged: widget.onChanged,
@@ -57,7 +57,7 @@ class _PickerInnerFieldsState extends State<PickerInnerFields> {
   }
 }
 
-class InnerTexFormFieldTile extends StatelessWidget {
+class OutterTexFormFieldTile extends StatelessWidget {
   final PickerContryProvider controller;
   final TextEditingController? textController;
   final String? hintText;
@@ -68,7 +68,7 @@ class InnerTexFormFieldTile extends StatelessWidget {
   final bool? isDialog;
   final bool? isBottomSheet;
   final bool isFullScreen;
-  const InnerTexFormFieldTile(
+  const OutterTexFormFieldTile(
       {super.key,
       required this.controller,
       this.onChanged,
@@ -88,70 +88,32 @@ class InnerTexFormFieldTile extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            height: controller.height,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              border: Border.all(
-                color:
-                    controller.validation != null ? Colors.red : Colors.black,
-              ),
-            ),
-            child: TextFormField(
-              controller: textController,
-              onEditingComplete: () {
-                onEditingComplete != null
-                    ? onEditingComplete!(
-                        '+${controller.cont?.phoneCode} ${controller.phoneNumber ?? ''}')
-                    : null;
-              },
-              onFieldSubmitted: (value) {
-                onFieldSubmitted != null
-                    ? onFieldSubmitted!(
-                        '+${controller.cont?.phoneCode} ${controller.phoneNumber ?? ''}')
-                    : null;
-              },
-              onSaved: (newValue) {
-                onSaved != null
-                    ? onSaved!(
-                        '+${controller.cont?.phoneCode} ${controller.phoneNumber ?? ''}')
-                    : null;
-              },
-              onChanged: (value) {
-                if (onChanged != null) {
-                  onChanged!(value);
-                }
-                controller.debouncing.run(() {
-                  controller.setValidations(value);
-                });
-              },
-              maxLines: 1,
-              keyboardType: const TextInputType.numberWithOptions(
-                  decimal: false, signed: false),
-              inputFormatters: [
-                FilteringTextInputFormatter.digitsOnly,
-                LengthLimitingTextInputFormatter(controller.phoneLength),
-              ],
-              style: const TextStyle(
-                fontWeight: FontWeight.w600,
-              ),
-              decoration: InputDecoration(
-                contentPadding:
-                    const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
-                hintText: hintText,
-                border: InputBorder.none,
-                prefixIcon: GestureDetector(
-                  onTap: () {
-                    PickerCountry.picker(
-                      context,
-                      isDialog: isDialog ?? false,
-                      isBottomSheet: isBottomSheet ?? false,
-                      isFullScreen: isFullScreen,
-                      onComplete: (country) {
-                        controller.setCountry(country);
-                      },
-                    );
-                  },
+          Row(
+            children: [
+              GestureDetector(
+                onTap: () {
+                  PickerCountry.picker(
+                    context,
+                    isDialog: isDialog ?? false,
+                    isBottomSheet: isBottomSheet ?? false,
+                    isFullScreen: isFullScreen,
+                    onComplete: (country) {
+                      controller.setCountry(country);
+                    },
+                  );
+                },
+                child: Container(
+                  width: 90,
+                  height: controller.height,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    border: Border.all(
+                      color: controller.cont == null &&
+                              controller.validation != null
+                          ? Colors.red
+                          : Colors.black,
+                    ),
+                  ),
                   child: Container(
                     color: Colors.transparent,
                     child: controller.cont == null
@@ -166,9 +128,11 @@ class InnerTexFormFieldTile extends StatelessWidget {
                                 fit: BoxFit.cover,
                                 package: PackageConstant.packageName,
                               ),
-                              const Icon(
-                                Icons.arrow_drop_down,
-                                color: Colors.black,
+                              const FittedBox(
+                                child: Icon(
+                                  Icons.arrow_drop_down,
+                                  color: Colors.black,
+                                ),
                               ),
                             ],
                           )
@@ -200,7 +164,67 @@ class InnerTexFormFieldTile extends StatelessWidget {
                   ),
                 ),
               ),
-            ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Container(
+                  height: controller.height,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    border: Border.all(
+                      color: controller.cont != null &&
+                              controller.validation != null
+                          ? Colors.red
+                          : Colors.black,
+                    ),
+                  ),
+                  child: TextFormField(
+                    controller: textController,
+                    onEditingComplete: () {
+                      onEditingComplete != null
+                          ? onEditingComplete!(
+                              '+${controller.cont?.phoneCode} ${controller.phoneNumber ?? ''}')
+                          : null;
+                    },
+                    onFieldSubmitted: (value) {
+                      onFieldSubmitted != null
+                          ? onFieldSubmitted!(
+                              '+${controller.cont?.phoneCode} ${controller.phoneNumber ?? ''}')
+                          : null;
+                    },
+                    onSaved: (newValue) {
+                      onSaved != null
+                          ? onSaved!(
+                              '+${controller.cont?.phoneCode} ${controller.phoneNumber ?? ''}')
+                          : null;
+                    },
+                    onChanged: (value) {
+                      if (onChanged != null) {
+                        onChanged!(value);
+                      }
+                      controller.debouncing.run(() {
+                        controller.setValidations(value);
+                      });
+                    },
+                    maxLines: 1,
+                    keyboardType: const TextInputType.numberWithOptions(
+                        decimal: false, signed: false),
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                      LengthLimitingTextInputFormatter(controller.phoneLength),
+                    ],
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w600,
+                    ),
+                    decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.symmetric(
+                          vertical: 15, horizontal: 10),
+                      hintText: hintText,
+                      border: InputBorder.none,
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
           AnimatedContainer(
             duration: const Duration(milliseconds: 400),

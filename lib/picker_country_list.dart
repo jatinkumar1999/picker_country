@@ -1,4 +1,3 @@
-
 final List<Map<String, dynamic>> countryCodes = [
   {
     'e164_cc': '93',
@@ -180,7 +179,7 @@ final List<Map<String, dynamic>> countryCodes = [
     'full_example_with_plus_sign': null,
     'display_name_no_e164_cc': 'Ascension Island (AC)',
     'e164_key': '247-AC-0',
-    'phone_length': 0,
+    'phone_length': 5,
   },
   {
     'e164_cc': '61',
@@ -432,7 +431,7 @@ final List<Map<String, dynamic>> countryCodes = [
     'full_example_with_plus_sign': null,
     'display_name_no_e164_cc': 'British Indian Ocean Territory (IO)',
     'e164_key': '246-IO-0',
-    'phone_length': 0,
+    'phone_length': 7,
   },
   {
     'e164_cc': '673',
