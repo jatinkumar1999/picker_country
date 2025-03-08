@@ -62,7 +62,7 @@ PickerInnerFields(
 
 ### Screenshot
 
-<img src="lib/assets/flutter_01.png" alt="PickerInnerFields" width="300"/>
+![PickerInnerFields](https://github.com/jatinkumar1999/picker_country/blob/main/lib/assets/flutter_01.png)
 
 ## Code Usage for PickerOutterFields
 
@@ -78,4 +78,4 @@ PickerOutterFields(
 
 ### Screenshot
 
-<img src="lib/assets/flutter_02.png" alt="Home Screen" width="300"/>
+![PickerOutterFields](https://github.com/jatinkumar1999/picker_country/blob/main/lib/assets/flutter_02.png)

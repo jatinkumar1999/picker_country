@@ -9,3 +9,11 @@
 ## 2.0.0
 
 - TODO: Added the PickerInnerFields && PickerOutterFields TextField with country picker.
+
+## 2.0.1
+
+- TODO: Resolve the Screenshot shown issue.
+
+## 2.0.2
+
+- TODO: Resolve the Screenshot shown issue.

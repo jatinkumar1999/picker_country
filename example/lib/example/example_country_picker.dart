@@ -59,12 +59,12 @@ class _ExampleCountryPickerState extends State<ExampleCountryPicker> {
                   //     isFullScreen: true, /// Set to true for full-screen mode (enabled by default)
                   ),
             ),
-            // const SizedBox(height: 20),
-            // Text(
-            //   'Selected Country',
-            //   style: Theme.of(context).textTheme.headlineLarge,
-            // ),
-            // const SizedBox(height: 10),
+            const SizedBox(height: 20),
+            Text(
+              'Selected Country',
+              style: Theme.of(context).textTheme.headlineLarge,
+            ),
+            const SizedBox(height: 10),
             Visibility(
               visible: selectedCountry != null,
               child: Text(

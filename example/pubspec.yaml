@@ -30,8 +30,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  picker_country:
-    path: ../
+  # picker_country:
+  #   path: ../
+  picker_country: ^2.0.0
 
 
   # The following adds the Cupertino Icons font to your application.

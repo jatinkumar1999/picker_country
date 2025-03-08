@@ -56,8 +56,6 @@ class _PickerCountryViewState extends State<PickerCountryView> {
     });
   }
 
- 
-
   Future<void> countryBottomSheet(PickerContryProvider controller) =>
       showModalBottomSheet(
         context: context,
