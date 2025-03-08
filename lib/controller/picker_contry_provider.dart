@@ -18,7 +18,6 @@ class PickerContryProvider extends ChangeNotifier {
   String? validation;
   double height = 55;
   final formKey = GlobalKey<FormState>();
-  var deBouncing = Debouncer(milliseconds: 400);
 
 //!Handel Custom Validations
   void setValidations(String number) {
@@ -85,7 +84,7 @@ class PickerContryProvider extends ChangeNotifier {
   }
 
   void filterCountryList(String search) {
-    deBouncing.run(() {
+    debouncing.run(() {
       if (search.isEmpty) {
         countryCodeList = countryCodeListFilter;
         searchController.clear();

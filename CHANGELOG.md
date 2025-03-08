@@ -5,3 +5,7 @@
 ## 1.0.1
 
 - TODO:Spelling Correction
+
+## 2.0.0
+
+- TODO: Added the PickerInnerFields && PickerOutterFields TextField with country picker.
